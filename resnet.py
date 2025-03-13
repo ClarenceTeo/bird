@@ -192,12 +192,13 @@ for iteration in range(1):
     
     output_y = model.forward(data_x)
     loss = loss_function(output_y,data_y)
-
+    #prints the likeliest bird
     print(l[output_y.tolist()[0].index(max(output_y.tolist()[0]))])
     yes = sorted(output_y.tolist()[0],reverse = True)
     list1 = []
     for j in range(5):
         list1.append(l[output_y.tolist()[0].index(yes[j])])
+    #prints the 5 likeliest birds
     print(list1)
     losses.append(loss.item())
     model.zero_grad(set_to_none=True)
